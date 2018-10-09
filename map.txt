@@ -1,0 +1,23 @@
+# map structure:
+# 'x': wall
+# 'o': ground
+# 'e': entrance
+# 's': exit
+
+
+xxxxxxxxxxxxxxx
+xoooooxxxooooox
+xoxxxoooooxxoxx
+xoooxxoxxoxxoxx
+eoxoxooxoooooox
+xxxoooxxooxxoxx
+soxxxxxxoxxooox
+xooooooxoxxoxxx
+xxxoxxoxoxxoxxx
+xooooooxoooooox
+xoxxxooxoooxxox
+xooxooxxxooxoox
+xxooooxxxxxxoxx
+xxxxxooooooooxx
+xxxxxxxxxxxxxxx
+

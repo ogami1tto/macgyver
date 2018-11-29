@@ -1,7 +1,7 @@
 # map structure:
 # 'x': wall
 # 'o': ground
-# 'e': entrance
+# 'e': MacGyver starting point
 # 's': exit
 
 

@@ -12,7 +12,8 @@ class Map:
         self.level_file = config.LABY_FILE  # fichier texte où se trouve le laby.
         self.map_dict = {}    # dictionnaire où sont stockées les cases du laby.
         self.free_frame = []  # liste contenant les cases vides.
-        mcgyver = Character()
+        # mcgyver = Character() ajouter instance MG à partir de "Character" ?
+
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""

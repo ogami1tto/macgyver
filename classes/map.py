@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import config  
+import character
 
 class Map:
     """classe qui construit la carte du labyrinthe"""
@@ -11,6 +12,7 @@ class Map:
         self.level_file = config.LABY_FILE  # fichier texte où se trouve le laby.
         self.map_dict = {}    # dictionnaire où sont stockées les cases du laby.
         self.free_frame = []  # liste contenant les cases vides.
+        mcgyver = Character()
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
@@ -42,38 +44,6 @@ if __name__ == '__main__':
     m.empty_frame()
     print(m.free_frame)
 
-    # for cle, valeur in m.map_dict.items():
-    #     if valeur == "o":
-    #         print(cle)
-
-
-    # for valeur in m.map_dict.values():
-    #     if valeur == 'o':
-    #         print(m.map_dict.keys())
-    
-    
-
-    # def empty_frame(self):
-    #     """méthode qui récupère les cases vides du labyrinthe"""
-
-
-# def letter_reader(self):
-#   dico = {}
-#   fichier = open("/Users/florent/Dropbox/PYTHON EXOS/macgyver/map/map.txt", "r")
-#   x = 0
-#   y = 0
-#   for ligne in fichier:  # position de y
-#       for carac in ligne:  # position de x
-#           if carac not in "\n":  # pour ne pas inclure les sauts de ligne dans le décompte
-#               if carac == self:
-#                   dico[str(x), str(y)] = carac
-#           x += 1
-#       y += 1
-#       x = 0
-#
-#   print(dico)
-#
-# letter_reader("s")
 
  
 

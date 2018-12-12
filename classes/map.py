@@ -1,85 +1,94 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-import config  
-import character
-
-#! /usr/bin/env python3
-# coding: utf-8
+import config
+import player
+import random
+import guardian
+import item
 
 class Map:
     """classe qui construit la carte du labyrinthe"""
+    # mcg_spawn = []
 
     def __init__(self):
         """"constructeur de classe"""
-        self.level_file = config.LABY_FILE  # fichier texte où se trouve le laby.
-        self.map_dict = {}  # dictionnaire où sont stockées les cases du laby.
+        self.map_full = {} # dictionnaire où sont stockées les cases du laby.
+        self.laby_x = config.LABY_WIDTH # largeur du labyrinthe
+        self.laby_y = config.LABY_HEIGHT # hauteur du labyrinthe
         self.free_frame = []  # liste contenant les cases vides.
-        # self.macgyver = macgyver.Character() # ajouter instance MG à partir de "Character" ?
+        self.wall = [] # liste contenant les cases 'mur'.
+        self.items = [] # liste contenant les items.
+        self.mcg_spawn = [] # coordonnees apparition MacGyver
+        self.guardian_spawn = [] # coordonnees apparition du Gardien
+        self.create_map() # lance la méthode création du laby à partir du fichier .txt
+        self.map_reader() # lance la méthode interprétation du fichier .txt
+        self.random_items() # lance la méthode
+
+        # creer instance Character - MacGyver
+        self.macgyver = player.Player(0,0) # ajouter instance MG à partir de "Player" ?
+
         # gardien = gardien.Character() # ajouter instance MG à partir de "Character" ?
-        self.mg_spawn = []
-        self.guardian_spawn = []
-        # Character.__init__(self)
+
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
-        with open(self.level_file, "r") as level:  # lecture du fichier texte contenant le 'plan' du labyrinthe
+        with open(config.LABY_FILE, "r") as level:  # lecture du fichier texte contenant le 'plan' du labyrinthe
             x = 0
             y = 0
             for line in level:
                 for char in line:
                     if char != '\n':
-                        self.map_dict[
-                            str(x), str(y)] = char  # les données du fichier texte sont stockées dans un dictionnaire
+                        self.map_full[str(x), str(y)] = char  # les données du fichier texte sont stockées dans un dictionnaire
+
+                            # if char == "m":
+                            #     self.map_dict[str(x), str(y)] = self.macgyver
+
                     x += 1
                 y += 1
                 x = 0
 
-    def mac_spawn(self):
-        """methode qui propose de stocker les coordonnées d'apparition de MacGyver"""
-        for cle, valeur in self.map_dict.items():
-            if valeur == "e":
-                self.mg_spawn.append(cle)
 
-    def guard_spawn(self):
-        """methode qui propose de stocker les coordonnées d'apparition de MacGyver"""
-        for cle, valeur in self.map_dict.items():
-            if valeur == "g":
+    def map_reader(self):
+        """methode qui propose de stocker dans une liste les coordonnées de cases d'un type à spécifier"""
+        for cle, valeur in self.map_full.items():
+            if valeur == "m":
+                self.mcg_spawn.append(cle)
+                # mcg_spawn.append(cle)
+            elif valeur == "g":
                 self.guardian_spawn.append(cle)
-
-    def empty_frame(self):
-        """methode qui propose de stocker dans une liste les coordonnées des cases vides du laby"""
-        for cle, valeur in self.map_dict.items():
-            if valeur == "o":
+            elif valeur == "o":
                 self.free_frame.append(cle)
+            elif valeur == "x":
+                self.wall.append(cle)
 
-    def map_reader(self, code, exit):
-        """methode qui propose de stocker dans une liste les coordonnées des cases vides du laby"""
-        self.exit = []
-        for cle, valeur in self.map_dict.items():
-            if valeur == code:
-                exit.append(cle)
 
-    # cette méthode fonctionne, mais en ayant la lettre code en parametre,
-    # ca permettrait d'utiliser cette méthode pour déterminer les coordonnées
-    # des points de départ des personnages...
+    def random_items(self):
+        """methode qui choisit au hasard 3 emplacements pour les items"""
+        self.items = random.sample(self.free_frame, 3)
+
+
+    def display_laby(self):
+        self.wall = WALLS_PIC
+        self.floor = FLOOR_PIC
+
+
 
 
 if __name__ == '__main__':
     m = Map()
-    # print(m.map_dict)
-    m.create_map()
-    # print(m.map_dict)
-    # m.empty_frame()
-    # print(m.free_frame)
-    m.map_reader("g", "self.free_frame")
-    print(m.free_frame)
-    # m.guard_spawn()
+    # m.random_items()
+    # print(m.items)
     # print(m.guardian_spawn)
-    # m.mac_spawn()
-    # print(m.mg_spawn)
+    print(m.mcg_spawn)
+    print(m.mcg_spawn[0][0])
+    print(m.mcg_spawn[0][1])
+    # macgyver = player.Player(0,0)
+    # print(m.map_full)
+    # print(macgyver.position_x)
+    # print(self.MacGyver)
 
 
- 
 
-    
+
+

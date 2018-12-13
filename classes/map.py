@@ -9,7 +9,6 @@ import item
 
 class Map:
     """classe qui construit la carte du labyrinthe"""
-    # mcg_spawn = []
 
     def __init__(self):
         """"constructeur de classe"""
@@ -36,20 +35,25 @@ class Map:
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
-        with open(config.LABY_FILE, "r") as level:  # lecture du fichier texte contenant le 'plan' du labyrinthe
+        with open(config.LABY_FILE, "r") as level:  # lecture du fichier texte
+                                                    # contenant le 'plan' du
+                                                    # labyrinthe
             x = 0
             y = 0
             for line in level:
                 for char in line:
                     if char != '\n':
-                        self.map_full[str(x), str(y)] = char  # les données du fichier texte sont stockées dans un dictionnaire
+                        self.map_full[str(x), str(y)] = char  # les données du
+                                                              # fichier texte sont
+                                                              # stockées dans un dictionnaire
                     x += 1
                 y += 1
                 x = 0
 
 
     def map_reader(self):
-        """methode qui propose de stocker dans une liste les coordonnées de cases d'un type à spécifier"""
+        """methode qui propose de stocker dans une liste...
+         les coordonnées de cases d'un type à spécifier"""
         for cle, valeur in self.map_full.items():
             if valeur == "m":
                 self.mcg_spawn.append(cle)

@@ -5,6 +5,7 @@ import map
 
 class Guardian:
     """classe qui gère le gardien"""
+
     def __init__(self, x_posi, y_posi):
         self.position_x = x_posi
         self.position_y = y_posi

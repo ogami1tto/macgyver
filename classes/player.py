@@ -5,6 +5,7 @@ import map
 
 class Player:
     """classe qui gère le personnage du joueur"""
+
     def __init__(self, x_posi, y_posi):
         """constructeur de classe"""
         self.position_x = x_posi # position sur la largeur

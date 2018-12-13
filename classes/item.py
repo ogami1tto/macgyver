@@ -3,7 +3,6 @@
 
 import map
 
-
 class Item:
     """classe qui va gérer les items du jeu"""
 
@@ -18,6 +17,7 @@ class Item:
     def display_item(self):
         """méthode qui affiche graphiquement les items sur la carte"""
         pass
+
 
     def collected_item():
         # Faire disparaître les items une fois collectés par le personnage !!!

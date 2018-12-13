@@ -3,7 +3,6 @@
 
 import map
 
-
 class Player:
     """classe qui gère le personnage du joueur"""
     def __init__(self, x_posi, y_posi):
@@ -23,11 +22,11 @@ class Player:
         pass
 
 
-
     def move_char(self):
         """méthode qui permet d'autoriser les déplacements...
          du personnage dans le labyrinthe"""
         pass
+
 
     def die_char(self):
         """méthode qui agit sur le statut du personnage"""
@@ -36,9 +35,6 @@ class Player:
         #     else:
         #         self.is_alive = True
         pass
-
-
-
 
 
 if __name__ == '__main__':

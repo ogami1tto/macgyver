@@ -33,6 +33,7 @@ class Map:
         self.item_3 = item.Item(self.items[2][0], self.items[2][1])
         # self.current_position = [] # coordonnees du joueur
 
+
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
         with open(config.LABY_FILE, "r") as level:  # lecture du fichier texte contenant le 'plan' du labyrinthe
@@ -65,12 +66,9 @@ class Map:
         self.items = random.sample(self.free_frame, 3)
 
 
-
     def display_laby(self):
         self.wall = WALLS_PIC
         self.floor = FLOOR_PIC
-
-
 
 
 if __name__ == '__main__':

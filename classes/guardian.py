@@ -3,7 +3,6 @@
 
 import map
 
-
 class Guardian:
     """classe qui gère le gardien"""
     def __init__(self, x_posi, y_posi):

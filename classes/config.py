@@ -3,8 +3,6 @@
 
 """ Module contenant l'ensemble des variables 'standards' du programme."""
 
-import os
-
 LABY_FILE = "../map/level.txt"
 LABY_WIDTH = 100
 LABY_HEIGHT = 100

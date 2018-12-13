@@ -25,10 +25,13 @@ class Map:
         self.map_reader() # lance la méthode interprétation du fichier .txt
         self.random_items() # lance la méthode
 
-        """creer instance pour MacGyver et le Gardien"""
-        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1]) # ajouter instance MG à partir de "Player" ?
+        """creer instance pour MacGyver, le Gardien, et les items"""
+        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1])
         self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
-
+        self.item_1 = item.Item(self.items[0][0], self.items[0][1])
+        self.item_2 = item.Item(self.items[1][0], self.items[1][1])
+        self.item_3 = item.Item(self.items[2][0], self.items[2][1])
+        # self.current_position = [] # coordonnees du joueur
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
@@ -62,6 +65,7 @@ class Map:
         self.items = random.sample(self.free_frame, 3)
 
 
+
     def display_laby(self):
         self.wall = WALLS_PIC
         self.floor = FLOOR_PIC
@@ -78,6 +82,10 @@ if __name__ == '__main__':
     print(m.guardian_spawn)
     print(m.murdock.position_x)
     print(m.murdock.position_y)
+    print(m.items)
+    print(m.item_1.position_x)
+    print(m.item_3.position_y)
+
 
 
 

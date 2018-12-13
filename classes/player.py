@@ -11,19 +11,18 @@ class Player:
         self.position_x = x_posi # position sur la largeur
         self.position_y = y_posi # position sur la hauteur
         self.items_collected = 0 # inventaire des items collectés
-        # self.start_position_x = map.mcg_spawn[0][0]
-        # self.start_position_y = map.mcg_spawn[0][1]
 
-        # self.starting_point = map.mcg_spawn # point de départ sur la map
-        # self.status = false or true # statut du personnage
-        # self.name = name
         # self.image = MAC_PIC # image associé au personnage
-        self.is_alive = True
+        self.is_alive = True # statut du personnage
 
 
     def pick_item(self):
         """Methode qui permet de collecter un objet en passant dessus"""
-        self.items_collected += 1
+        # if position player == position item:
+            # self.items_collected += 1
+        pass
+
+
 
     def move_char(self):
         """méthode qui permet d'autoriser les déplacements...

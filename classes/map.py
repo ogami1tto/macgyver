@@ -25,10 +25,9 @@ class Map:
         self.map_reader() # lance la méthode interprétation du fichier .txt
         self.random_items() # lance la méthode
 
-        # creer instance Character - MacGyver
-        self.macgyver = player.Player(0,0) # ajouter instance MG à partir de "Player" ?
-
-        # gardien = gardien.Character() # ajouter instance MG à partir de "Character" ?
+        """creer instance pour MacGyver et le Gardien"""
+        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1]) # ajouter instance MG à partir de "Player" ?
+        self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
 
 
     def create_map(self):
@@ -40,10 +39,6 @@ class Map:
                 for char in line:
                     if char != '\n':
                         self.map_full[str(x), str(y)] = char  # les données du fichier texte sont stockées dans un dictionnaire
-
-                            # if char == "m":
-                            #     self.map_dict[str(x), str(y)] = self.macgyver
-
                     x += 1
                 y += 1
                 x = 0
@@ -54,7 +49,6 @@ class Map:
         for cle, valeur in self.map_full.items():
             if valeur == "m":
                 self.mcg_spawn.append(cle)
-                # mcg_spawn.append(cle)
             elif valeur == "g":
                 self.guardian_spawn.append(cle)
             elif valeur == "o":
@@ -77,16 +71,17 @@ class Map:
 
 if __name__ == '__main__':
     m = Map()
-    # m.random_items()
-    # print(m.items)
-    # print(m.guardian_spawn)
     print(m.mcg_spawn)
     print(m.mcg_spawn[0][0])
     print(m.mcg_spawn[0][1])
-    # macgyver = player.Player(0,0)
-    # print(m.map_full)
-    # print(macgyver.position_x)
-    # print(self.MacGyver)
+    print(m.macgyver.position_y)
+    print(m.guardian_spawn)
+    print(m.murdock.position_x)
+    print(m.murdock.position_y)
+
+
+
+
 
 
 

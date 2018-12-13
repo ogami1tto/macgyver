@@ -1,13 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-
-def collected_item():
-    # Faire disparaître les items une fois collectés par le personnage !!!
-    pass
-
-    # pop_item(self):
-    """méthode qui donne la position de l'item dans le laby"""
+import map
 
 
 class Item:
@@ -21,6 +15,10 @@ class Item:
 
     def display_item(self):
         """méthode qui affiche graphiquement les items sur la carte"""
+        pass
+
+    def collected_item():
+        # Faire disparaître les items une fois collectés par le personnage !!!
         pass
 
 

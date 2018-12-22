@@ -8,6 +8,8 @@ LABY_WIDTH = 100
 LABY_HEIGHT = 100
 WALL_PIC = None
 FLOOR_PIC = None
-MAC_PIC = None
-MURD_PIC = None
-
+MAC_PIC = 'mac'
+MURD_PIC = 'murdock'
+ETHER = 'ether'
+TUBE = 'tube'
+AIGUILLE = 'aiguille'

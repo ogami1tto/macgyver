@@ -29,11 +29,11 @@ class Map:
         # self.test()
 
         """creer instance pour MacGyver, le Gardien, et les items"""
-        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1])
-        self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
-        self.item_1 = item.Item(self.items[0][0], self.items[0][1])
-        self.item_2 = item.Item(self.items[1][0], self.items[1][1])
-        self.item_3 = item.Item(self.items[2][0], self.items[2][1])
+        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1], config.MAC_PIC)
+        self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1], config.MURD_PIC)
+        self.aiguille = item.Item(self.items[0][0], self.items[0][1], config.AIGUILLE)
+        self.tube = item.Item(self.items[1][0], self.items[1][1], config.TUBE)
+        self.ether = item.Item(self.items[2][0], self.items[2][1], config.ETHER)
 
 
     def create_map(self):

@@ -19,7 +19,7 @@ class Game:
 
 
     def move_right(self):
-        if "x" == m.grid[str(m.position_x+1), str(m.position_y)]:
+        if m.grid[str(m.position_x+1), str(m.position_y)] == "x":
             self.position_x += 0
         else:
             self.position_x += 1
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
     print(m.position_x, m.position_y)
     print(m.grid[str(m.position_x), str(m.position_y)])
-    print(m.laby.item_1.position_x, m.laby.item_1.position_y)
+    print(m.laby.aiguille.position_x, m.laby.aiguille.position_y)
 
     # print(m.grid[str(m.position_x), str(m.position_y)])
 

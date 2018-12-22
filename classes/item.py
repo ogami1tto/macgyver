@@ -12,6 +12,7 @@ class Item:
         self.position_y = y_posi
         # self.picture = picture
         # self.position = []
+        self.item_is_on = True
 
 
     def display_item(self):
@@ -21,8 +22,15 @@ class Item:
 
     def collected_item():
         # Faire disparaître les items une fois collectés par le personnage !!!
+        # if position item == position player:
+        #     self.item_is_on = False
+        # else:
+        #     True
+        #     while player(position) not item(position):
+        # self.item_is_on = True
         pass
 
 
 if __name__ == '__main__':
-    tube = Item("ok")
+    tube = Item(9, 9)
+

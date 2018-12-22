@@ -10,5 +10,4 @@ WALL_PIC = None
 FLOOR_PIC = None
 MAC_PIC = None
 MURD_PIC = None
-GUARD_POSI = []
-MAC_POSI = []
+

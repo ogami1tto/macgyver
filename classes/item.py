@@ -3,6 +3,7 @@
 
 import map
 import config
+import game
 
 class Item:
     """classe qui va gérer les items du jeu"""
@@ -14,6 +15,7 @@ class Item:
         self.picture = picture
         # self.position = []
         self.item_is_on = True
+        # self.collected_item()
 
 
     def display_item(self):
@@ -21,17 +23,8 @@ class Item:
         pass
 
 
-    def collected_item():
-        # Faire disparaître les items une fois collectés par le personnage !!!
-        # if position item == position player:
-        #     self.item_is_on = False
-        # else:
-        #     True
-        #     while player(position) not item(position):
-        # self.item_is_on = True
-        pass
-
 
 if __name__ == '__main__':
     t = Item(9, 9, config.TUBE)
+    print(t.item_is_on)
 

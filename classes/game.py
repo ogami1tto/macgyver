@@ -12,65 +12,87 @@ class Game:
     def __init__(self):
         self.laby = map.Map()
         self.grid = self.laby.map_full
-        # self.joueur = player.Player(self.laby.mcg_spawn[0][0], self.laby.mcg_spawn[0][1])
-        self.position_x = int(self.laby.mcg_spawn[0][0])
-        self.position_y = int(self.laby.mcg_spawn[0][1])
-        # self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1])
+        self.position_x = int(self.laby.macgyver.position_x)
+        self.position_y = int(self.laby.macgyver.position_y)
+        self.items_collected = 0 # inventaire des items collectés
+        self.ether = self.laby.ether
+        # self.game_on = True
 
 
-    def move_right(self):
-        if m.grid[str(m.position_x+1), str(m.position_y)] == "x":
-            self.position_x += 0
-        else:
-            self.position_x += 1
+    def check_item(self):
+        if [self.position_x, self.position_y] == [self.laby.ether.position_x, self.laby.ether.position_y]:
+            self.pick_item()
 
-    def move_left(self):
-        if "x" == m.grid[str(m.position_x-1), str(m.position_y-1)]:
-            self.position_x += 0
-        else:
-            self.position_x -= 1
 
-    def move_up(self):
-        # if str(m.grid[int(m.position_x), int(m.position_y)]) == "x":
-        if "x" == m.grid[str(m.position_x), str(m.position_y-1)]:
-            self.position_y += 0
-        else:
-            self.position_y -= 1
+    def pick_item(self):
+        """Methode qui permet de collecter un objet en passant dessus"""
+        self.items_collected += 1
+        # Faire disparaître les items une fois collectés par le personnage !!!
+        self.laby.ether.item_is_on = False
 
-    def move_down(self):
-        if "x" == m.grid[str(m.position_x), str(m.position_y+1)]:
-            self.position_y += 0
-        else:
-            self.position_y += 1
 
-    # def check_next_move(self):
-    #     """methode qui verifie si le personnage peut aller dans...
-    #      la direction donnee"""
-    #     if m.grid[str(m.position_x), str(m.position_y)] != "x":
+    def move(self, direction):
+        """méthode qui permet les deplacements du personnage"""
+        if direction == "right":
+            if self.grid[str(self.position_x+1), str(self.position_y)] != "x":
+                self.position_x+=1
+                self.check_item()
+        if direction == "left":
+            if self.grid[str(self.position_x-1), str(self.position_y)] != "x":
+                 self.position_x-=1
+                 self.check_item()
+        if direction == "up":
+            if self.grid[str(self.position_x), str(self.position_y-1)] != "x":
+                 self.position_y-=1
+                 self.check_item()
+        if direction == "down":
+            if self.grid[str(self.position_x), str(self.position_y+1)] != "x":
+                self.position_y+=1
+                self.check_item()
+
+
+    # def check_win(self):
+    #     """méthode qui agit sur le statut du personnage"""
+    #     # if position_player == position_guardian and self.items_collected < 3:
+    #     #     self.is_alive = False
+    #     # else:
+    #     #     self.is_alive = True
+    #     pass
 
 
 if __name__ == '__main__':
     m = Game()
-    print(m.laby.items)
-    print(m.laby.mcg_spawn)
-    print(m.laby.mcg_spawn[0][0], m.laby.mcg_spawn[0][1])
-    print("BREAK")
-    # print(m.player.position_y)
-    print(m.grid[str(m.position_x), str(m.position_y)])
-    m.move_up()
-    m.move_right()
-    m.move_right()
-    m.move_right()
-    m.move_down()
-
-    print(m.position_x, m.position_y)
-    print(m.grid[str(m.position_x), str(m.position_y)])
-    print(m.laby.aiguille.position_x, m.laby.aiguille.position_y)
-
+    # print(m.laby.macgyver.position_x)
+    # print("Coordonnees items :", m.laby.items)
+    # print("MacGyver spawn :", m.laby.mcg_spawn)
+    # print("MacGyver position depuis module Map :")
+    # print(m.laby.macgyver.position_x, m.laby.macgyver.position_y)
+    # print("------")
     # print(m.grid[str(m.position_x), str(m.position_y)])
+    m.move("up")
+    m.move("right")
+    m.move("right")
+    m.move("right")
+    m.move("down")
+    # print("------")
+    print("MacGyver position depuis module Map :")
+    print(m.laby.macgyver.position_x, m.laby.macgyver.position_y)
+    print("MacGyver position depuis module Game :")
+    print(m.position_x, m.position_y)
+    print("Valeur du dico 'full_map' aux memes coordonnees :")
+    print(m.grid[str(m.position_x), str(m.position_y)])
+    # print("------")
+    # print("MacGyver position depuis module Map :")
+    # print(m.laby.macgyver.position_x, m.laby.macgyver.position_y)
+    # print(m.valeur)
+    print("Ether position depuis module Map :")
+    print(m.laby.ether.position_x, m.laby.ether.position_y)
+    print(m.laby.ether.item_is_on)
+    print((m.laby.ether.position_x, m.laby.ether.position_y), (m.position_x, m.position_y))
+    print(m.items_collected)
+    print(m.laby.ether.position_x)
+    print(m.laby.ether.item_is_on)
+    # print(m.position_y)
+    # print(int(m.laby.macgyver.position_y))
 
-    # m.check_next_move()
-    # # print(c.position_x)
-    # # print(c.position_y)
 
-    # print(m.joueur.position_x, m.joueur.position_y)

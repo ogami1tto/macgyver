@@ -10,7 +10,6 @@ import position
 
 class Map:
     """classe qui construit la carte du labyrinthe"""
-
     def __init__(self):
         """"constructeur de classe"""
         self.map_full = {} # dictionnaire où sont stockées les cases du laby.
@@ -26,14 +25,15 @@ class Map:
         self.map_reader() # lance la méthode interprétation du fichier .txt
         self.random_items() # lance la méthode
         # self.position_guardian = position.Position(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
-        # self.test()
 
         """creer instance pour MacGyver, le Gardien, et les items"""
         self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1], config.MAC_PIC)
+        # self.macgyver = player.Player(self.pozi[0][0], self.pozi[0][1], config.MAC_PIC)
         self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1], config.MURD_PIC)
         self.aiguille = item.Item(self.items[0][0], self.items[0][1], config.AIGUILLE)
         self.tube = item.Item(self.items[1][0], self.items[1][1], config.TUBE)
-        self.ether = item.Item(self.items[2][0], self.items[2][1], config.ETHER)
+        # self.ether = item.Item(self.items[2][0], self.items[2][1], config.ETHER)
+        self.ether = item.Item(3, 4, config.ETHER)
 
 
     def create_map(self):
@@ -70,7 +70,8 @@ class Map:
 
     def random_items(self):
         """methode qui choisit au hasard 3 emplacements pour les items"""
-        self.items = random.sample(self.free_frame, 3)
+        # self.items = random.sample(self.free_frame, 3)
+        self.items = random.sample(self.free_frame, 2)
 
 
     def display_laby(self):
@@ -78,36 +79,21 @@ class Map:
         self.floor = FLOOR_PIC
 
 
-    # def test(self):
-    #     return self.murdock.position_y
-
-
 if __name__ == '__main__':
     m = Map()
     print(m.mcg_spawn)
     print(m.mcg_spawn[0][0])
     print(m.mcg_spawn[0][1])
-    print(m.macgyver.position_x)
-    print(m.macgyver.position_y)
     # print(m.macgyver.position_y)
     # print(m.guardian_spawn)
-    print(m.murdock.is_alive)
+    # print(m.murdock.is_alive)
     # print(m.position_guardian)
-    print(m.guardian_spawn)
-    print(m.murdock.position_x)
-    print(m.murdock.position_y)
+    # print(m.guardian_spawn)
+    # print(m.murdock.position_x)
+    # print(m.murdock.position_y)
     # print(m.items)
     # print(m.item_1.position_x)
     # print(m.item_3.position_y)
-    # print(test())
-
-
-
-
-
-
-
-
-
-
+    # print(m.ether.position_x, m.ether.position_y
+    # print([m.ether.position_x, m.ether.position_y])
 

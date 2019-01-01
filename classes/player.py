@@ -3,6 +3,7 @@
 
 import map
 import config
+import item
 
 class Player:
     """classe qui gère le personnage du joueur"""
@@ -11,25 +12,9 @@ class Player:
         """constructeur de classe"""
         self.position_x = x_posi # position sur la largeur
         self.position_y = y_posi # position sur la hauteur
-        self.items_collected = 0 # inventaire des items collectés
+        # self.items_collected = 0 # inventaire des items collectés
         self.picture = picture # image associé au personnage
         self.is_alive = True # statut du personnage
-        # self.laby = map.Map()
-
-
-    # def pick_item(self):
-    #     """Methode qui permet de collecter un objet en passant dessus"""
-    #     if [self.position_x, self.position_y] == position item:
-    #         self.items_collected += 1
-
-
-    def die_char(self):
-        """méthode qui agit sur le statut du personnage"""
-        # if position_player == position_guardian and self.items_collected < 3:
-        #     self.is_alive = False
-        # else:
-        #     self.is_alive = True
-        pass
 
 
 

@@ -20,13 +20,17 @@ class Game:
 
 
     def check_item(self):
-        if [self.position_x, self.position_y] == [self.laby.ether.position_x, self.laby.ether.position_y]:
+        if [int(self.position_x), int(self.position_y)] == [int(self.laby.aiguille.position_x), int(self.laby.aiguille.position_y)]:
             self.pick_item()
-
+        if [int(self.position_x), int(self.position_y)] == [int(self.laby.tube.position_x), int(self.laby.tube.position_y)]:
+            self.pick_item()
+        if [int(self.position_x), int(self.position_y)] == [int(self.laby.ether.position_x), int(self.laby.ether.position_y)]:
+            self.pick_item()
 
     def pick_item(self):
         """Methode qui permet de collecter un objet en passant dessus"""
         self.items_collected += 1
+        print("Vous avez ramassé l'objet.")
         # Faire disparaître les items une fois collectés par le personnage !!!
         self.laby.ether.item_is_on = False
 
@@ -56,9 +60,11 @@ class Game:
         if self.grid[str(self.position_x), str(self.position_y)] == position_guardian:
             if self.items_collected < 3:
                 self.laby.macgyver.is_alive = False
+                print("Le Gardien vous a capturé ! Perdu !")
         else:
             self.laby.macgyver.is_alive = True
             self.laby.murdock.is_alive = False
+            print("Vous avez endormi le Gardien ! Gagné !")
 
 
     def game_over(self):
@@ -84,13 +90,13 @@ if __name__ == '__main__':
     # print("MacGyver position depuis module Map :")
     # print(m.laby.macgyver.position_x, m.laby.macgyver.position_y)
     # print(m.valeur)
-    print("Ether position depuis module Map :")
-    print(m.laby.ether.position_x, m.laby.ether.position_y)
+    print("Items position depuis module Map :")
+    print(m.laby.items)
     print(m.laby.ether.item_is_on)
     print((m.laby.ether.position_x, m.laby.ether.position_y), (m.position_x, m.position_y))
     print(m.items_collected)
-    print(m.laby.ether.position_x)
     print(m.laby.ether.item_is_on)
+
     # print(m.position_y)
     # print(int(m.laby.macgyver.position_y))
 

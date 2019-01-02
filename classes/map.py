@@ -20,20 +20,16 @@ class Map:
         self.items = [] # liste contenant les items.
         self.mcg_spawn = [] # coordonnees apparition MacGyver
         self.guardian_spawn = [] # coordonnees apparition du Gardien
-
         self.create_map() # lance la méthode création du laby à partir du fichier .txt
         self.map_reader() # lance la méthode interprétation du fichier .txt
         self.random_items() # lance la méthode
-        # self.position_guardian = position.Position(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
-
         """creer instance pour MacGyver, le Gardien, et les items"""
         self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1], config.MAC_PIC)
-        # self.macgyver = player.Player(self.pozi[0][0], self.pozi[0][1], config.MAC_PIC)
         self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1], config.MURD_PIC)
         self.aiguille = item.Item(self.items[0][0], self.items[0][1], config.AIGUILLE)
         self.tube = item.Item(self.items[1][0], self.items[1][1], config.TUBE)
-        # self.ether = item.Item(self.items[2][0], self.items[2][1], config.ETHER)
-        self.ether = item.Item(3, 4, config.ETHER)
+        self.ether = item.Item(self.items[2][0], self.items[2][1], config.ETHER)
+        # self.ether = item.Item(3, 4, config.ETHER)
 
 
     def create_map(self):
@@ -70,8 +66,8 @@ class Map:
 
     def random_items(self):
         """methode qui choisit au hasard 3 emplacements pour les items"""
-        # self.items = random.sample(self.free_frame, 3)
-        self.items = random.sample(self.free_frame, 2)
+        self.items = random.sample(self.free_frame, 3)
+        # self.items = random.sample(self.free_frame, 2)
 
 
     def display_laby(self):

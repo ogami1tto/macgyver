@@ -16,6 +16,8 @@ class Guardian:
         # self.image = MURD_PIC # image associé au personnage
 
 
+
+
 if __name__ == '__main__':
     c = Guardian(0, 6, config.MURD_PIC)
     print(c.position_y)

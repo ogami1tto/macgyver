@@ -85,15 +85,5 @@ if __name__ == '__main__':
     print(m.mcg_spawn[0][0])
     print(m.mcg_spawn[0][1])
     # print(m.macgyver.position_y)
-    # print(m.guardian_spawn)
-    # print(m.murdock.is_alive)
-    # print(m.position_guardian)
-    # print(m.guardian_spawn)
-    # print(m.murdock.position_x)
-    # print(m.murdock.position_y)
-    # print(m.items)
-    # print(m.item_1.position_x)
-    # print(m.item_3.position_y)
-    # print(m.ether.position_x, m.ether.position_y
-    # print([m.ether.position_x, m.ether.position_y])
+
 

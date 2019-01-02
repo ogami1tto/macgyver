@@ -15,7 +15,7 @@ class Game:
         self.position_x = int(self.laby.macgyver.position_x)
         self.position_y = int(self.laby.macgyver.position_y)
         self.items_collected = 0 # inventaire des items collectés
-        self.ether = self.laby.ether
+        # self.ether = self.laby.ether
         # self.game_on = True
 
 
@@ -51,24 +51,23 @@ class Game:
                 self.check_item()
 
 
-    # def check_win(self):
-    #     """méthode qui agit sur le statut du personnage"""
-    #     # if position_player == position_guardian and self.items_collected < 3:
-    #     #     self.is_alive = False
-    #     # else:
-    #     #     self.is_alive = True
-    #     pass
+    def check_win(self):
+        """méthode qui verifie si le personnage peut battre le gardien"""
+        if self.grid[str(self.position_x), str(self.position_y)] == position_guardian:
+            if self.items_collected < 3:
+                self.laby.macgyver.is_alive = False
+        else:
+            self.laby.macgyver.is_alive = True
+            self.laby.murdock.is_alive = False
+
+
+    def game_over(self):
+        if self.laby.macgyver.is_alive == False:
+            pass
 
 
 if __name__ == '__main__':
     m = Game()
-    # print(m.laby.macgyver.position_x)
-    # print("Coordonnees items :", m.laby.items)
-    # print("MacGyver spawn :", m.laby.mcg_spawn)
-    # print("MacGyver position depuis module Map :")
-    # print(m.laby.macgyver.position_x, m.laby.macgyver.position_y)
-    # print("------")
-    # print(m.grid[str(m.position_x), str(m.position_y)])
     m.move("up")
     m.move("right")
     m.move("right")

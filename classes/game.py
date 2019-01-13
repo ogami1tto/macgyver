@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+# import pygame
 import map
 import config
 import player
@@ -15,7 +16,6 @@ class Game:
         self.position_x = int(self.laby.macgyver.position_x)
         self.position_y = int(self.laby.macgyver.position_y)
         self.items_collected = 0 # inventaire des items collectés
-        # self.ether = self.laby.ether
         # self.game_on = True
 
 
@@ -26,6 +26,7 @@ class Game:
             self.pick_item()
         if [int(self.position_x), int(self.position_y)] == [int(self.laby.ether.position_x), int(self.laby.ether.position_y)]:
             self.pick_item()
+
 
     def pick_item(self):
         """Methode qui permet de collecter un objet en passant dessus"""
@@ -38,21 +39,18 @@ class Game:
     def move(self, direction):
         """méthode qui permet les deplacements du personnage"""
         if direction == "right":
-            if self.grid[str(self.position_x+1), str(self.position_y)] != "x":
-                self.position_x+=1
-                self.check_item()
+                newpos = [str(int(self.position_x)+1), str(self.position_y)]
         if direction == "left":
-            if self.grid[str(self.position_x-1), str(self.position_y)] != "x":
-                 self.position_x-=1
-                 self.check_item()
+                newpos = [str(int(self.position_x)-1), str(self.position_y)]
         if direction == "up":
-            if self.grid[str(self.position_x), str(self.position_y-1)] != "x":
-                 self.position_y-=1
-                 self.check_item()
+                newpos = [str(self.position_x), str(int(self.position_y)-1)]
         if direction == "down":
-            if self.grid[str(self.position_x), str(self.position_y+1)] != "x":
-                self.position_y+=1
-                self.check_item()
+                newpos = [str(self.position_x), str(int(self.position_y)+1)]
+
+        if self.grid[newpos[0], newpos[1]] != "x":
+            self.position_x = newpos[0]
+            self.position_y = newpos[1]
+            self.check_item()
 
 
     def check_win(self):
@@ -93,11 +91,9 @@ if __name__ == '__main__':
     print("Items position depuis module Map :")
     print(m.laby.items)
     print(m.laby.ether.item_is_on)
-    print((m.laby.ether.position_x, m.laby.ether.position_y), (m.position_x, m.position_y))
+    # print(newpos[0], newpos[1])
+    print((m.position_x, m.position_y))
     print(m.items_collected)
     print(m.laby.ether.item_is_on)
-
-    # print(m.position_y)
-    # print(int(m.laby.macgyver.position_y))
 
 

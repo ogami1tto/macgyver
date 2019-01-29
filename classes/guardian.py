@@ -7,20 +7,18 @@ import config
 class Guardian:
     """classe qui gère le gardien"""
 
-    def __init__(self, x_posi, y_posi, width, height):
-        self.position_x = x_posi
-        self.position_y = y_posi
-        self.height = height
-        self.width = width
+    def __init__(self, position_x, position_y):
+        self.position_x = position_x
+        self.position_y = position_y
+        self.position = (position_x, position_y)
+        # self.height = height
+        # self.width = width
         # self.picture = picture
-        # self.is_alive = True # statut du personnage
-
+        self.is_alive = 1 # statut du personnage
         # self.image = MURD_PIC # image associé au personnage
 
 
-
-
 if __name__ == '__main__':
-    c = Guardian(0, 6, config.MURD_PIC)
-    print(c.position_y)
+    c = Guardian(0, 6)
+    print(c.position)
 

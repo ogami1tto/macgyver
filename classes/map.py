@@ -18,6 +18,7 @@ class Map:
         # self.laby_y = config.LABY_HEIGHT # hauteur du labyrinthe
         self.free_frame = []  # liste contenant les cases vides.
         self.wall = []  # liste contenant les cases 'mur'.
+        self.exit = []
         self.items = []  # liste contenant les items.
         self.mcg_spawn = []  # coordonnees apparition MacGyver
         self.guardian_spawn = []  # coordonnees apparition du Gardien
@@ -26,11 +27,11 @@ class Map:
         self.map_reader()  # lance la méthode interprétation du fichier .txt
         self.random_items()  # lance la méthode
         """creer instance pour MacGyver, le Gardien, et les items"""
-        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1], 25, 35)
-        self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1], 25, 35)
-        self.needle = item.Item(self.items[0][0], self.items[0][1], 25, 35)
-        self.tube = item.Item(self.items[1][0], self.items[1][1], 25, 35)
-        self.ether = item.Item(self.items[2][0], self.items[2][1], 25, 35)
+        self.macgyver = player.Player(self.mcg_spawn[0][0], self.mcg_spawn[0][1])
+        self.murdock = guardian.Guardian(self.guardian_spawn[0][0], self.guardian_spawn[0][1])
+        self.needle = item.Item(self.items[0][0], self.items[0][1])
+        self.tube = item.Item(self.items[1][0], self.items[1][1])
+        self.ether = item.Item(self.items[2][0], self.items[2][1])
 
     def create_map(self):
         """methode permettant de transformer le fichier texte en un dictionnaire"""
@@ -61,11 +62,12 @@ class Map:
                 self.free_frame.append(cle)
             elif valeur == "x":
                 self.wall.append(cle)
+            elif valeur == "":
+                self.exit.append(cle)
 
     def random_items(self):
         """methode qui choisit au hasard 3 emplacements pour les items"""
         self.items = random.sample(self.free_frame, 3)
-        # self.items = random.sample(self.free_frame, 2)
 
     # def display_laby(self):
     #     self.wall = config.WALLS_PIC
@@ -77,4 +79,5 @@ if __name__ == '__main__':
     print(m.mcg_spawn)
     print(m.mcg_spawn[0][0])
     print(m.mcg_spawn[0][1])
-    # print(m.macgyver.position_y)
+    print((m.macgyver.position_x, m.macgyver.position_y))
+

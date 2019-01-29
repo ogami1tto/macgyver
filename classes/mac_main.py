@@ -109,10 +109,8 @@ class Game:
     def run_pygame(self):
         """Fonction qui gère la boucle du jeu"""
 
-
-
         pygame.init()  # Pygame library initialization
-        pygame.font.init()
+        # pygame.font.init()
 
         window = pygame.display.set_mode((config.window_size, 600))  # Pygame window display
         pygame.display.set_caption(config.TITLE)  # Window title
@@ -176,6 +174,20 @@ class Game:
         background = pygame.transform.scale(background, (config.window_size, 600))
         window.blit(background, (0, 0))
 
+        # # display pictures of all items
+        # wall_image = pygame.image.load(config.WALL_PIC).convert_alpha()
+        # wall_posi = new_game.laby.wall
+        # on_screen(wall_image, (wall_posi)
 
+        # floor_image = pygame.image.load(config.FLOOR_PIC).convert_alpha()
+        # floor_posi = new_game.laby.free_frame
+        # on_screen(floor_image, (floor_posi))
+
+        # pygame.quit()
+
+
+if __name__ == '__main__':
+
+    new_game = Game()  # create an instance for the maze
 
 

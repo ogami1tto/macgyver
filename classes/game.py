@@ -71,19 +71,16 @@ class Game:
     def check_win(self):
         """méthode qui verifie si le personnage peut battre le gardien"""
         pygame.init()
-        # self.quit_game = pygame.display.set_mode((225, 225))
 
         if self.items_collected < 3:
             self.laby.macgyver.is_alive = 0
             print("Le Gardien vous a capturé ! Perdu !")
             self.game_over = True
-            # quit_game.blit(pygame.image.load(constants.win).convert(), (0,0))
         else:
             self.laby.macgyver.is_alive = 1
             self.laby.murdock.is_alive = 0
             print("Vous avez endormi le Gardien ! Gagné !")
             self.good_game = True
-            # quit_game.blit(pygame.image.load(constants.loose).convert(), (0,0))
 
         if self.good_game is True:
             self.window.blit(pygame.image.load(config.WIN_PIC).convert(),
@@ -94,7 +91,6 @@ class Game:
             # textwindow = text.get_rect()
             # textwindow.x, textwindow.y = config.window_size / 2, config.window_size / 2  # Centering the text
             # self.window.blit(text, textwindow)
-
         pygame.display.flip()
 
         if self.game_over is True:
@@ -106,7 +102,6 @@ class Game:
             # textwindow = text.get_rect()
             # textwindow.x, textwindow.y = config.window_size / 2, config.window_size / 2  # Centering the text
             # self.window.blit(text, textwindow)
-
             pygame.display.flip()
 
     def game_over(self):
@@ -159,7 +154,7 @@ class Game:
         # Main loop
         game_over = False
         clock = pygame.time.Clock()
-        pygame.key.set_repeat(100, 10)  # Moving player while pressing long on key
+        pygame.key.set_repeat(100, 10)  # Moving player while long pressing on keys
 
         for case in self.floor:
             self.window.blit(floor_pic,
@@ -177,7 +172,7 @@ class Game:
             self.window.blit(ether_pic, self.ether_posi)
 
         while not game_over:
-            pygame.time.Clock().tick(40)  # Refresh rate# Loop speed limit to not overload the processor (30 frames per second)
+            pygame.time.Clock().tick(40)  # Refresh rate
             pygame.time.delay(100)
             for event in pygame.event.get():
                 if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:

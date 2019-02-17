@@ -1,18 +1,17 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-import random
 
 """ Module contenant l'ensemble des variables 'standards' du programme."""
 
 # Paramètres de la fenêtre carrée
-sprite_number = 15  # nombre de cases
+width_sprite_number = 16  # nombre de cases
+height_sprite_number = 16  # nombre de cases
 sprite_size = 40  # taille de la case
-window_size = sprite_number * sprite_size  # taille de la fenetre de jeu
+window_size = width_sprite_number * sprite_size  # taille de la fenetre de jeu
 
 # Personnalisation de la fenêtre
 TITLE = "Aidez MacGyver à s'échapper !"
-# ICON = "../images/MacGyver.bmp"
 ICON = "../images/MacGyver.png"
 
 
@@ -21,15 +20,16 @@ LABY_FILE = "../map/level.txt"
 
 # Listes des images du jeu
 # image_accueil = "../images/graveyard_shift.png"
-BACKGROUND_PIC = "../images/operation_stealth.png"
+WIN_PIC = "../images/win_game2.jpg"
+LOSE_PIC = '../images/game_lose.jpg'
 START = "../images/depart.png"
-EXIT = "../images/exit.png"
-WALL_PIC = "../images/wall.jpg"
+EXIT = "../images/start.png"
+WALL = "../images/wall.jpg"
 # wall_list = ["../images/wall_1.png", "../images/wall_2.png", "../images/wall_3.png"]
 # WALLS_PIC = random.choice(wall_list)
-FLOOR_PIC = "../images/floor.jpg"
-MAC_PIC = '../images/MacGyver.png'
-MURD_PIC = "../images/guardian.png"
+FLOOR = "../images/floor.jpg"
+MAC = '../images/MacGyver.png'
+GUARD = "../images/guardian.png"
 ETHER = "../images/ether.png"
 TUBE = "../images/tube.png"
 NEEDLE = "../images/needle.png"

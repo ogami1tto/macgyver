@@ -14,16 +14,13 @@ class Map:
     def __init__(self):
         """"constructeur de classe"""
         self.map_full = {}  # dictionnaire où sont stockées les cases du laby.
-        # self.laby_x = config.LABY_WIDTH # largeur du labyrinthe
-        # self.laby_y = config.LABY_HEIGHT # hauteur du labyrinthe
         self.free_frame = []  # liste contenant les cases vides.
         self.wall = []  # liste contenant les cases 'mur'.
         self.exit = []
         self.items = []  # liste contenant les items.
         self.mcg_spawn = []  # coordonnees apparition MacGyver
         self.guardian_spawn = []  # coordonnees apparition du Gardien
-        self.create_map(
-        )  # lance la méthode création du laby à partir du fichier .txt
+        self.create_map()  # lance la méthode création du laby à partir du fichier .txt
         self.map_reader()  # lance la méthode interprétation du fichier .txt
         self.random_items()  # lance la méthode
         """creer instance pour MacGyver, le Gardien, et les items"""
@@ -68,10 +65,6 @@ class Map:
     def random_items(self):
         """methode qui choisit au hasard 3 emplacements pour les items"""
         self.items = random.sample(self.free_frame, 3)
-
-    # def display_laby(self):
-    #     self.wall = config.WALLS_PIC
-    #     self.floor = config.FLOOR_PIC
 
 
 if __name__ == '__main__':

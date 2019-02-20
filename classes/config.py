@@ -5,8 +5,8 @@
 """ Module contenant l'ensemble des variables 'standards' du programme."""
 
 # Paramètres de la fenêtre carrée
-width_sprite_number = 16  # nombre de cases
-height_sprite_number = 16  # nombre de cases
+width_sprite_number = 15  # nombre de cases
+height_sprite_number = 15  # nombre de cases
 sprite_size = 40  # taille de la case
 window_size = width_sprite_number * sprite_size  # taille de la fenetre de jeu
 

@@ -9,7 +9,7 @@ class Guardian:
         self.position_x = position_x
         self.position_y = position_y
         self.position = (position_x, position_y)
-        self.is_alive = True  # statut du personnage
+        self.is_alive = 1  # statut du personnage
 
 
 if __name__ == '__main__':

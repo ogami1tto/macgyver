@@ -11,6 +11,8 @@ class Player:
         self.position_y = position_y  # position sur la hauteur
         self.position = (position_x, position_y)
         self.items_collected = 0  # inventaire des items collectés
+        self.is_alive = 1  # statut du personnage
+
 
 
 if __name__ == '__main__':

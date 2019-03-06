@@ -3,15 +3,11 @@
 
 
 class Guardian:
-    """classe qui gère le gardien"""
+    """Class for the guardian protecting the exit in the game."""
 
     def __init__(self, position_x, position_y):
+        """Class constructor."""
         self.position_x = position_x
         self.position_y = position_y
         self.position = (position_x, position_y)
-        self.is_alive = 1  # statut du personnage
-
-
-if __name__ == '__main__':
-    c = Guardian(0, 6)
-    print(c.position)
+        self.is_alive = 1

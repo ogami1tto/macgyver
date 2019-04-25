@@ -9,10 +9,10 @@ import config
 
 
 class Game:
-    """classe qui gere la boucle du jeu."""
+    """Class in charge of the game loop."""
 
     def __init__(self):
-        """Initialisation du labyrinthe."""
+        """Labyrinth initialisation."""
         self.laby = map.Map()
         self.grid = self.laby.map_full
         self.position_x = int(self.laby.macgyver.position_x)
@@ -41,7 +41,7 @@ class Game:
         self.run_pygame()
 
     def check_item(self):
-        """Methode qui permet de collecter un objet en passant dessus."""
+        """Method® that allows item collecting by passing over it."""
         if [int(self.position_x), int(self.position_y)] == [
                 int(self.laby.needle.position_x),
                 int(self.laby.needle.position_y)
@@ -95,7 +95,7 @@ class Game:
             self.good_game = True
 
     def move(self, direction):
-        """Methode qui permet les deplacements du personnage."""
+        """Method that allows player's moves."""
         if direction == "right":
             newpos = [str(int(self.position_x) + 1), str(self.position_y)]
         if direction == "left":
@@ -118,7 +118,7 @@ class Game:
             self.check_win()
 
     def run_pygame(self):
-        """Fonction qui gere la boucle du jeu."""
+        """Fonction in charge of the game loop."""
         running = True
         pygame.init()  # Pygame library initialization
         pygame.key.set_repeat(100,

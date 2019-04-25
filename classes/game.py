@@ -206,8 +206,7 @@ class Game:
 
                 if self.lost_game is True:
                     self.window.blit(
-                        pygame.image.load(config.LOSE_PIC).convert_alpha(),
-                        (0, 0))
+                        pygame.image.load(config.LOSE_PIC).convert(), (0, 0))
                     pygame.display.flip()
 
                 for event in pygame.event.get():

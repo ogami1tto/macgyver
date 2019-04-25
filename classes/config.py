@@ -12,10 +12,10 @@ window_size = width_sprite_number * sprite_size  # taille de la fenetre de jeu
 TITLE = "Aidez MacGyver à s'échapper !"
 ICON = "../images/MacGyver.png"
 
-# Fichier de la grille du labyrinthe
+# File for the labyrinth's grid and its path
 LABY_FILE = "../map/level.txt"
 
-# Listes des images du jeu
+# List of images in the game
 WIN_PIC = "../images/win_game2.jpg"
 LOSE_PIC = '../images/game_lose.jpg'
 START = "../images/depart.png"

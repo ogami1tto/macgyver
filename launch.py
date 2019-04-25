@@ -12,6 +12,10 @@ Fichiers : config.py, game.py, guardian.py, item.py, map.py, player.py, position
 from classes import game
 
 
+def main():
+    new_game = Game()
+    new_game.run_pygame()
 
-new_game = Game()
-new_game.run_pygame()
+
+if __name__ == "__main__":
+    main()
